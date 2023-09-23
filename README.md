@@ -77,6 +77,18 @@ chmod 744 ./bin/install_terraform_cli
 
 https://en.wikipedia.org/wiki/Chmod
 
+#### Execution Considerations
+
+When executing the bash script we can use the `./` shorthand notiation to execute the bash script.
+
+eg. `./bin/install_terraform_cli`
+
+If we are using a script in .gitpod.yml  we need to point the script to a program to interpert it.
+
+eg. `source ./bin/install_terraform_cli`
+
+
+
 ### Github Lifecycle (Before, Init, Command)
 
 We need to be careful when using the Init because it will not rerun if we restart an existing workspace.
