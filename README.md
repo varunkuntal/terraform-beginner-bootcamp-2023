@@ -184,3 +184,33 @@ We'll need to generate AWS CLI credits from IAM User in order to the user AWS CL
 5. Assign `Permissions` (Attach existing policies, add to group, or copy permissions).
 6. (Optional) Set up `Password` if AWS Management Console access is enabled.
 7. Review and click `Create user`.
+
+
+## Terraform Basics Documentation
+
+### Terraform Registry
+The Terraform Registry ([registry.terraform.io](https://registry.terraform.io/)) is where Terraform sources providers and modules.
+- **Providers:** Interfaces to APIs to create resources.
+- **Modules:** Make Terraform code modular, portable, and sharable.
+
+Example: [Random Terraform Provider](https://registry.terraform.io/providers/hashicorp/random)
+
+### Terraform Console
+Type `terraform` to list all Terraform commands.
+
+#### `terraform init`
+Run at the start of a project to download the necessary provider binaries.
+
+#### `terraform plan`
+Generates a changeset of what will be altered. It can be directly applied without outputting.
+
+#### `terraform apply`
+Executes the plan, prompting for approval unless `--auto-approve` is added.
+
+### Lock & State Files
+- `.terraform.lock.hcl`: Locks versioning for providers and modules; commit to VCS.
+- `.terraform.tfstate`: Contains current infrastructure state; do not commit due to sensitivity. This file **should not be committed** to your VCS.
+- `.terraform.tfstate.backup`: Holds previous state.
+
+### Terraform Directory
+The `.terraform` directory houses the binaries of Terraform providers.
