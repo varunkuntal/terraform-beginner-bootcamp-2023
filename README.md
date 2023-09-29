@@ -214,3 +214,31 @@ Executes the plan, prompting for approval unless `--auto-approve` is added.
 
 ### Terraform Directory
 The `.terraform` directory houses the binaries of Terraform providers.
+
+
+## Issue with Terraform Cloud Login
+Sometimes when attempting to run `terraform login`, it launches a wiswig view in lynx browser. However it does not work as expected in Gitpod VSCode in the browser.
+
+The workaround is to manually generate a token in Terraform Cloud:
+
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+```
+
+Then create a file manually here:
+
+```
+nano /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+
+Use the following code:
+
+```json
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "THE-TERRAFORM-CLOUD-TOKEN"
+    }
+  }
+}
+```
