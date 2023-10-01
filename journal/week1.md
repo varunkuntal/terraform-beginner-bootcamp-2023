@@ -62,3 +62,25 @@ An file extension in Terraform Cloud (also `.auto.tfvars`) in working directory 
   
 5. **-var and -var-file options on the Command Line**:
    - These are the final and highest precedence level. Variables set with these options will override those set in all other sources including those set by a Terraform Cloud workspace.
+
+
+## Dealing With Configuration Drift
+
+## What happens if we lose our state file?
+
+After losing our statefile, we may have to tear down all your cloud infrastructure manually.
+
+We can use terraform port but it won't for all cloud resources. We need check the terraform providers documentation for which resources support import.
+
+### Fix Missing Resources with Terraform Import
+
+`terraform import aws_s3_bucket.bucket bucket-name`
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+[AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+
+### Fix Manual Configuration
+
+If someone goes and delete or modifies cloud resource manually through ClickOps. 
+
+If we run Terraform plan it with attempt to put our infrastraucture back into the expected state fixing Configuration Drift
