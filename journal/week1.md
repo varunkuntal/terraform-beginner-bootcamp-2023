@@ -1,5 +1,37 @@
 # Terraform Beginner Bootcamp 2023 - Week 1
 
+## Managing Tags in Git
+
+[Guide for Removing Local and Remote Tags in Git](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
+
+### Delete a Tag Locally 
+```sh
+git tag -d [tag_name]
+```
+
+### Remove a Tag from the Remote Repository
+
+```sh
+git push --delete origin [tag_name]
+```
+
+### Re-Tagging a Specific Commit
+Find the SHA of the commit you want to tag from your Github history and:
+
+```sh
+git checkout [SHA]
+git tag [SEMVER]
+git push --tags
+git checkout main
+```
+
+
+**Note:**
+- Placeholders like `[tag_name]` and `[SEMVER]` are used to indicate where specific values should be entered.
+- Make sure to provide appropriate values in place of `[tag_name]`, `[SHA]`, and `[SEMVER]` while using the commands.
+- Links to external websites (like the guide for removing tags) might become outdated, so double-check them if you're reading this in the distant future.
+
+
 ## Root Module Structure
 
 Our Terraform project's root module structure:
