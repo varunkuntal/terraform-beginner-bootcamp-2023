@@ -17,7 +17,7 @@ variable "dew" {
   })
 }
 
-variable "symphony" {
+variable "cadillacs_dinos" {
   type = object({
     public_path = string
     content_version = number
